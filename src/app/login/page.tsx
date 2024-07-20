@@ -47,7 +47,7 @@ export default function LoginPage() {
     return(
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
             <h1>
-                {loading ? "Processing" : "lLogin"}
+                {loading ? "Processing" : "Login"}
             </h1>
             <hr />
 

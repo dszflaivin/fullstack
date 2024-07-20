@@ -3,12 +3,13 @@ import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
+
 connect()
 
 
 export async function POST(request: NextRequest){
     try {
-        const reqBody =await request.json()
+        const reqBody = await request.json()
         const {email,password}= reqBody;
 
         //check if user exists
@@ -26,7 +27,7 @@ export async function POST(request: NextRequest){
         //create token data
         const tokenData= {
             id:user._id,
-            username: user.usernaem,
+            username: user.username,
             email: user.email
         }
         //create token
