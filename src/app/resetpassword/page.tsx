@@ -1,26 +1,21 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
 export default function ResetPasswordPage() {
     const router = useRouter();
-    const searchParams = useSearchParams();
     const [token, setToken] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        const urlToken = searchParams.get('token');
-        if (urlToken) {
-            setToken(urlToken);
-        } else {
-            toast.error("Invalid or missing token");
-            router.push("/login");
-        }
-    }, [searchParams, router]);
+    
+            const urlToken= window.location.search.split("=")[1];
+            setToken(urlToken || "");
+        }, []);
 
     const onSubmit = async () => {
         if (password !== confirmPassword) {
