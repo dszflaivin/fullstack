@@ -13,6 +13,7 @@ export default function ResetPasswordPage() {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        try{
         const urlToken = searchParams.get('token');
         if (urlToken) {
             setToken(urlToken);
@@ -20,6 +21,10 @@ export default function ResetPasswordPage() {
             toast.error("Invalid or missing token");
             router.push("/login");
         }
+        } catch (error) {
+        console.error("Error in useEffect:", error);
+        toast.error("An error occurred while processing the token");
+    }
     }, [searchParams, router]);
 
     const onSubmit = async () => {
