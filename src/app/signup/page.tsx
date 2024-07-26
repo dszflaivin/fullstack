@@ -40,12 +40,16 @@ export default function SignupPage() {
     }, [user]);
 
     return(
-        <div className="flex flex-col items-center justify-center min-h-screen py-2">
-            <h1>
+        // <div className="flex flex-col items-center justify-center min-h-screen py-2">
+        
+        <div className="flex items-center justify-center min-h-screen">
+
+            <div className="flex flex-col items-center p-8 border border-gray-400 rounded-lg shadow-white">
+            <h1 className='text-2xl font-semibold'>
                 {loading ? "processing" : "Signup"}
             </h1>
             <hr />
-            <label htmlFor="username">username</label>
+            <label htmlFor="username" className='p-2'>username</label>
             <input className='p-2 border border-gray-300 rounded-lg
             mb-4 focus:outline-none focus:border-gray-600 text-black'
                 id="username"
@@ -55,7 +59,7 @@ export default function SignupPage() {
                 placeholder='username'
                 />
 
-            <label htmlFor="email">email</label>
+            <label htmlFor="email" className='p-2'>email</label>
             <input className='p-2 border bordey-gray-300 rounded-lg
             mb-4 focus:outline-none focus:border-gray-600 text-black'
                 id="email"
@@ -65,7 +69,7 @@ export default function SignupPage() {
                 placeholder='email'
                 />
 
-            <label htmlFor="password">password</label>
+            <label htmlFor="password" className='p-2'>password</label>
             <input className='p-2 border bordey-gray-300 rounded-lg
             mb-4 focus:outline-none focus:border-gray-600 text-black'
                 id="password"
@@ -77,10 +81,13 @@ export default function SignupPage() {
 
                 <button 
                 onClick={onSignup}
-                className='p-2 border border-gray-300 rounded-lg
-                mb-4 focus:outline-none focus:border-gray-600'>{buttonDisabled ? "No signup": "Signup"}</button>
+                className={`p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none ${buttonDisabled ? "bg-black" : "bg-black text-white hover:bg-gray-500"}`}
+                disabled={buttonDisabled}>{buttonDisabled ? "No signup": "Signup"}</button>
 
+                <div className='border border-gray-400 px-1 py-1 rounded-lg hover:bg-gray-500'>
                 <Link href="/login">Login Here</Link>
+                </div>
+        </div>
         </div>
     )
 }

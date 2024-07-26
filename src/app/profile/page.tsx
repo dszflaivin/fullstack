@@ -29,25 +29,31 @@ export default function ProfilePage() {
     }
     
     return (
-        <div className="flex flex-col items-center
-        justify-center min-h-screen py-2">
-            <h1>Profile</h1>
+
+        <div className="flex items-center justify-center min-h-screen">
+
+        <div className="flex flex-col items-center p-8  border border-gray-400 rounded-lg shadow-white">
+       
+        {/* <div className="flex flex-col items-center
+        justify-center min-h-screen py-2"> */}
+            <h1 className='font-bold p-2 text-2xl'>Profile</h1>
             <hr />
-            <p>Profile Page</p>
-            <h2 className="p-3 roundedd bg-green-500">{data === "nothing" ? "Nothing":<Link href={`/profile/${data}`}>
+            <p className="p-2">Profile Page</p>
+            <h2 className="p-4 roundedd bg-amber-100 text-black">{data === "nothing" ? "Nothing":<Link href={`/profile/${data}`}>
             {data}</Link>}</h2>
             <hr />
             <button 
             onClick={logout}
-                className="bg-blue-500 mt-4 hover:bg-vlue-700 text-white font-bold py-2 px-2 rounded">
+                className="bg-blue-300 mt-4 hover:bg-blue-800 text-white font-bold py-2 px-2 rounded">
                 Logout
             </button>
 
             <button 
             onClick={getUserDetails}
-                className="bg-green-700 mt-4 hover:bg-vlue-700 text-white font-bold py-2 px-2 rounded">
-                GetUser Details
+                className="bg-blue-300 mt-4 hover:bg-blue-800 text-white font-bold py-2 px-2 rounded">
+                Get User Details
             </button>
+        </div>
         </div>
     )
 }

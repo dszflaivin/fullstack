@@ -45,13 +45,16 @@ export default function LoginPage() {
     
 
     return(
-        <div className="flex flex-col items-center justify-center min-h-screen py-2">
-            <h1>
-                {loading ? "Processing" : "Login"}
+        <div className="flex items-center justify-center min-h-screen">
+
+            <div className="flex flex-col items-center p-8 border border-gray-400 rounded-lg shadow-white">
+
+            <h1 className='font-bold p-2 text-2xl'>
+                { loading ? "Processing" : "Login"}
             </h1>
             <hr />
 
-            <label htmlFor="email">email</label>
+            <label htmlFor="email" className='p-2'>email</label>
             <input className='p-2 border bordey-gray-300 rounded-lg
             mb-4 focus:outline-none focus:border-gray-600 text-black'
                 id="email"
@@ -61,7 +64,7 @@ export default function LoginPage() {
                 placeholder='email'
                 />
 
-            <label htmlFor="password">password</label>
+            <label htmlFor="password" className='p-2 '>password</label>
             <input className='p-2 border bordey-gray-300 rounded-lg
             mb-4 focus:outline-none focus:border-gray-600 text-black'
                 id="password"
@@ -73,10 +76,20 @@ export default function LoginPage() {
 
                 <button 
                 onClick={onLogin}
-                className='p-2 border border-gray-300 rounded-lg
-                mb-4 focus:outline-none focus:border-gray-600'>Login</button>
+                className={`p-2 w-36 border border-gray-300 rounded-lg mb-4 focus:outline-none ${buttonDisabled ? "bg-black" : "bg-black text-white hover:bg-gray-500"}`}
+                disabled={buttonDisabled}>
+                    Login</button>
 
-                <Link href="/signup">Signup Here</Link>
+                <div className='flex space-x-4'>
+                    <div className='border border-gray-400 px-1 py-1 rounded-lg hover:bg-gray-500 hover:text-white'>
+                    <Link href="/signup">Signup Here</Link>
+                    </div>
+
+                    <div className='group border border-gray-400 px-1 py-1 rounded-lg hover:bg-gray-500 hover:text-white'>
+                    <Link href="/forgotpassword" className=''>Forgot Password</Link>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
